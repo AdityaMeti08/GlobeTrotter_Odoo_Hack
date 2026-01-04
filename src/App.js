@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./screens/Login";
+import Dashboard from "./screens/Dashboard";
+import CreateTrip from "./screens/CreateTrip";
+import MyTrips from "./screens/MyTrips";
+import ItineraryBuilder from "./screens/ItineraryBuilder";
+import ItineraryView from "./screens/ItineraryView";
+import CitySearch from "./screens/CitySearch";
+import Budget from "./screens/Budget";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/create-trip" element={<CreateTrip />} />
+        <Route path="/my-trips" element={<MyTrips />} />
+        <Route path="/trip/:id/build" element={<ItineraryBuilder />} />
+        <Route path="/trip/:id/view" element={<ItineraryView />} />
+        <Route path="/search/city" element={<CitySearch />} />
+        <Route path="/trip/:id/budget" element={<Budget />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
